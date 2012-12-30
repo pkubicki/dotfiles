@@ -22,3 +22,8 @@ PS1="$PS1
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# enables bash alises file
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
