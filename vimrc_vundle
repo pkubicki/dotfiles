@@ -19,16 +19,21 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-haml'
-" Bundle 'plasticboy/vim-markdown'
-" Bundle 'pangloss/vim-javascript'
-Bundle "flazz/vim-colorschemes"
-" Bundle 'dark-ruby'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'pangloss/vim-javascript'
+" Bundle 'flazz/vim-colorschemes'
+Bundle 'dark-ruby'
 
 " required!
 filetype plugin indent on
 
+" 2 spaces tabs replaced with spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab 
+
 " syntax highlighting theme
-colorscheme vividchalk
+colorscheme dark-ruby
  
 " show line numbers
 set number
