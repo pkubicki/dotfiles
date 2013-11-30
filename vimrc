@@ -34,6 +34,11 @@ set expandtab
 " syntax highlighting
 syntax on
 colorscheme codeschool
+
+" font
+if has("gui_running")
+  set guifont=Monospace\ 11
+endif
  
 " show line numbers
 set number
@@ -61,3 +66,8 @@ autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd VimEnter * wincmd p
 
+" remove toolbar 
+if has("gui_running")
+  set guioptions-=T  
+endif
+ 
