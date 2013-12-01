@@ -15,6 +15,8 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'ervandew/supertab'
@@ -34,11 +36,6 @@ set expandtab
 " syntax highlighting
 syntax on
 colorscheme codeschool
-
-" font
-if has("gui_running")
-  set guifont=Monospace\ 11
-endif
  
 " show line numbers
 set number
@@ -66,8 +63,22 @@ autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd VimEnter * wincmd p
 
-" remove toolbar 
+" vim-rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = "Dispatch rspec --drb {spec}"
+
+
+" gvim
 if has("gui_running")
+
+  " remove toolbar 
   set guioptions-=T  
+
+  " font
+  set guifont=Monospace\ 11
+
 endif
- 
+
