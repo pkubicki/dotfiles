@@ -24,6 +24,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'pangloss/vim-javascript'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'rking/ag.vim'
 
 " required!
 filetype plugin indent on
@@ -62,6 +63,7 @@ set pastetoggle=<F2>
 autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd VimEnter * wincmd p
+nnoremap nn :NERDTreeToggle<CR>
 
 " vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -70,6 +72,37 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "Dispatch rspec --drb {spec}"
 
+" The Silver Searcher (ag)
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" splits
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" trailing whitespaces
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " gvim
 if has("gui_running")
