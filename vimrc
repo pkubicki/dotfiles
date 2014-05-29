@@ -26,6 +26,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'cakebaker/scss-syntax.vim'
 
 " required!
 filetype plugin indent on
@@ -108,11 +109,6 @@ autocmd BufWinLeave * call clearmatches()
 " clipboard
 set clipboard=unnamed
 
-" disable sounds
-set noerrorbells
-set novisualbell
-set t_vb=
-
 " gvim
 if has("gui_running")
 
@@ -121,6 +117,12 @@ if has("gui_running")
 
   " font
   set guifont=Monospace\ 11
+
+  " disable bells
+  set noerrorbells visualbell t_vb=
+  if has('autocmd')
+    autocmd GUIEnter * set visualbell t_vb=
+  endif
 
 endif
 
