@@ -61,6 +61,12 @@ let mapleader = ","
 " toogle code paste from external source
 set pastetoggle=<F2>
 
+" set to auto read when a file is changed from the outside
+set autoread
+
+" make searches case-sensitive only if they contain upper-case characters
+set ignorecase smartcase
+
 " NERDTree
 autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
