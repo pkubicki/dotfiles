@@ -65,7 +65,7 @@ set pastetoggle=<F2>
 autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd VimEnter * wincmd p
-nnoremap nt :NERDTreeToggle<CR>
+nmap <Leader>nt :NERDTreeToggle<CR>
 
 " vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
