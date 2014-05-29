@@ -27,6 +27,7 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'tpope/vim-endwise'
 
 " required!
 filetype plugin indent on
