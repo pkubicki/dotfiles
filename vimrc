@@ -1,14 +1,14 @@
 " be iMproved
 set nocompatible
 
-" required! 
+" required!
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " bundles
@@ -25,6 +25,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'pangloss/vim-javascript'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'rking/ag.vim'
+Bundle 'tpope/vim-fugitive'
 
 " required!
 filetype plugin indent on
@@ -32,12 +33,12 @@ filetype plugin indent on
 " 2 spaces tabs replaced with spaces
 set tabstop=2
 set shiftwidth=2
-set expandtab 
+set expandtab
 
 " syntax highlighting
 syntax on
 colorscheme codeschool
- 
+
 " show line numbers
 set number
 
@@ -63,7 +64,7 @@ set pastetoggle=<F2>
 autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd VimEnter * wincmd p
-nnoremap nn :NERDTreeToggle<CR>
+nnoremap nt :NERDTreeToggle<CR>
 
 " vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -104,11 +105,19 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" clipboard
+set clipboard=unnamed
+
+" disable sounds
+set noerrorbells
+set novisualbell
+set t_vb=
+
 " gvim
 if has("gui_running")
 
-  " remove toolbar 
-  set guioptions-=T  
+  " remove toolbar
+  set guioptions-=T
 
   " font
   set guifont=Monospace\ 11
