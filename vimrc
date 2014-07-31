@@ -4,12 +4,12 @@ set nocompatible
 " required!
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " bundles
 Bundle 'scrooloose/nerdtree'
@@ -28,6 +28,9 @@ Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-endwise'
+
+" required
+call vundle#end()
 
 " required!
 filetype plugin indent on
@@ -116,6 +119,9 @@ autocmd BufWinLeave * call clearmatches()
 " clipboard
 set clipboard=unnamed
 
+" encoding
+set encoding=utf-8
+
 " gvim
 if has("gui_running")
 
@@ -132,4 +138,4 @@ if has("gui_running")
   endif
 
 endif
-
+ 
