@@ -119,8 +119,11 @@ autocmd BufWinLeave * call clearmatches()
 " clipboard
 set clipboard=unnamed
 
-" encoding
+" The encoding displayed.
 set encoding=utf-8
+
+" The encoding written to file.
+set fileencoding=utf-8
 
 " gvim
 if has("gui_running")
