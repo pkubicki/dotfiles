@@ -16,7 +16,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-dispatch'
+Bundle 'jgdavey/tslime.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'ervandew/supertab'
@@ -71,6 +71,9 @@ set autoread
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
 
+" disables creation of *.swp files
+set noswapfile
+
 " NERDTree
 autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -82,18 +85,18 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "Dispatch rspec --drb {spec}"
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
 " The Silver Searcher (ag)
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " " ag is fast enough that CtrlP doesn't need to cache
+  " let g:ctrlp_use_caching = 0
 endif
 
 " bind K to grep word under cursor
@@ -141,4 +144,4 @@ if has("gui_running")
   endif
 
 endif
- 
+
