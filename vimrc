@@ -28,6 +28,7 @@ Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-endwise'
+Bundle 'scrooloose/syntastic'
 
 " required
 call vundle#end()
@@ -144,4 +145,10 @@ if has("gui_running")
   endif
 
 endif
+
+" rubocop
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_js_checkers = ['jslint', 'jshint']
 
