@@ -5,10 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# git completion
-source /usr/share/git/completion/git-completion.bash
-# git prompt
-source /usr/share/git/completion/git-prompt.sh
+# original bashrc
+source ~/dotfiles_old/.bashrc
 
 # Load RVM into a shell session *as a function*
 [[ -s "/home/pkubicki/.rvm/scripts/rvm" ]] && source "/home/pkubicki/.rvm/scripts/rvm"
