@@ -29,6 +29,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'scrooloose/syntastic'
+Bundle 'wookiehangover/jshint.vim'
 
 " required
 call vundle#end()
@@ -86,7 +87,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("clear && rspec {spec}\n")'
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -134,9 +135,6 @@ if has("gui_running")
 
 endif
 
-" rubocop
+" linters
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_coffee_checkers = ['coffeelint']
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_js_checkers = ['jslint', 'jshint']
-
+let g:syntastic_javascript_checkers = ['jshint']
