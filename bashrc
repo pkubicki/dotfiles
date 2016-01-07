@@ -9,7 +9,7 @@
 source ~/dotfiles_old/.bashrc
 
 # Load RVM into a shell session *as a function*
-[[ -s "/home/pkubicki/.rvm/scripts/rvm" ]] && source "/home/pkubicki/.rvm/scripts/rvm"
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # RVM completion
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
