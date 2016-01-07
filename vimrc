@@ -81,6 +81,7 @@ autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd VimEnter * wincmd p
 nmap <Leader>nt :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
