@@ -29,7 +29,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'scrooloose/syntastic'
-Bundle 'wookiehangover/jshint.vim'
 
 " required
 call vundle#end()
@@ -138,4 +137,6 @@ endif
 
 " linters
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_javascript_checkers = ['jshint']
+
+" markdown
+let g:vim_markdown_folding_disabled = 1
