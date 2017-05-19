@@ -140,3 +140,6 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " markdown
 let g:vim_markdown_folding_disabled = 1
+
+" ag
+let g:ag_prg='ag -S --nocolor --nogroup --column --ignore "./log/*" --ignore "./tmp/*" --ignore "./public/*"'
