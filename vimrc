@@ -44,6 +44,7 @@ set expandtab
 " syntax highlighting
 syntax on
 colorscheme codeschool
+au BufNewFile,BufRead *.inky set filetype=haml
 
 " show line numbers
 set number
